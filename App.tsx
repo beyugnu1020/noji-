@@ -1,9 +1,13 @@
-import React from 'react';
 
-export default function App() {
+import React from 'react';
+import Map from './Map';
+
+function App() {
   return (
-    <div>
-      <h1>노지어때 - 캠핑 친구를 만들어요!</h1>
+    <div style={{ width: '100vw', height: '100vh' }}>
+      <Map />
     </div>
   );
 }
+
+export default App;
