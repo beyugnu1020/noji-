@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 
 // Declare global kakao object
@@ -10,13 +11,12 @@ declare global {
 const Map = () => {
   useEffect(() => {
     const script = document.createElement('script');
-    // Make sure protocol is consistent
-    script.src = `https://dapi.kakao.com/v2/maps/sdk.js?appkey=c70022d9b554b46cc2259d0011436714&autoload=false`;
+    // Kakao Maps API with https protocol
+    script.src = "https://dapi.kakao.com/v2/maps/sdk.js?appkey=c70022d9b554b46cc2259d0011436714&autoload=false";
     script.async = true;
     document.head.appendChild(script);
 
     script.onload = () => {
-      // Safely check if kakao object is available
       if (window.kakao && window.kakao.maps) {
         window.kakao.maps.load(() => {
           const container = document.getElementById('map');
@@ -38,7 +38,7 @@ const Map = () => {
           marker.setMap(map);
         });
       } else {
-        console.error('Failed to load Kakao Maps API');
+        console.error("Kakao Maps API failed to load.");
       }
     };
   }, []);
